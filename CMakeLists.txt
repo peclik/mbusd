@@ -78,6 +78,11 @@ set(mbusd_SOURCES
 add_executable(mbusd ${mbusd_SOURCES})
 install(TARGETS mbusd DESTINATION bin)
 
+set_target_properties(mbusd PROPERTIES LINK_SEARCH_START_STATIC ON)
+set_target_properties(mbusd PROPERTIES LINK_SEARCH_END_STATIC ON)
+target_link_options(mbusd PRIVATE -static-libgcc -static-libstdc++ -static)
+
+
 # aggregate the man page template
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/doc/mbusd.8.in mbusd.8)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/mbusd.8 DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/man/man8)
