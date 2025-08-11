@@ -1,0 +1,34 @@
+# RPi cross-compiling using Conan
+#
+# # Download RPi cross tools and add its recipes to Conan
+# git clone https://github.com/tttapa/docker-arm-cross-toolchain.git
+# conan remote add tttapa-docker-arm-cross-toolchain ./docker-arm-cross-toolchain
+#
+# # Open a Conan+CMake project
+# cd mbusd
+#
+# # Install the toolchain using Conan (select the appropriate profile for your RPi)
+# source ~/conan/bin/activate
+#
+# conan install . --build=missing -pr ~/docker-arm-cross-toolchain/profiles/aarch64-rpi3-linux-gnu.conan
+# or
+# conan install . --build=missing -pr ~/docker-arm-cross-toolchain/profiles/armv6-rpi-linux-gnueabihf.conan
+#
+# # Configure the CMake project
+# cmake --preset conan-release --fresh
+#
+# # Build the CMake project
+# cmake --build --preset conan-release
+
+#[requires]
+#libxxx/1.2.10
+
+#[options]
+#xxx/without_log=False
+
+[generators]
+CMakeDeps
+CMakeToolchain
+
+[layout]
+cmake_layout

@@ -9,3 +9,4 @@
 .pydevproject
 /build
 build.sh
+CMakeUserPresets.json
