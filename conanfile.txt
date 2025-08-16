@@ -10,8 +10,13 @@
 # # Install the toolchain using Conan (select the appropriate profile for your RPi)
 # source ~/conan/bin/activate
 #
+# 64-bit ARMv8 (RPi 2B rev. 1.2, RPi 3B/3B+, CM 3, RPi 4B/400, CM 4, RPi Zero 2 W, RPi 5):
 # conan install . --build=missing -pr ~/docker-arm-cross-toolchain/profiles/aarch64-rpi3-linux-gnu.conan
-# or
+#
+# 32-bit ARMv8 (RPi 2B rev. 1.2, RPi 3B/3B+, CM 3, RPi 4B/400, CM 4, RPi Zero 2 W, RPi 5):
+# conan install . --build=missing -pr ~/opt/x-tools/armv8-rpi3-linux-gnueabihf.profile.conan
+#
+# 32-bit ARMv6 (RPi A/B/A+/B+, CM 1, RPi Zero/Zero W):
 # conan install . --build=missing -pr ~/docker-arm-cross-toolchain/profiles/armv6-rpi-linux-gnueabihf.conan
 #
 # # Configure the CMake project
